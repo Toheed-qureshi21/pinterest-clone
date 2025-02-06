@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+.common-input{
+    @apply border-2 border-gray-300 rounded-md h-[2rem] shadow-sm  focus:outline-none py-4 px-2 
+}
+.common-btn{
+    @apply text-white bg-red-700 w-full mt-6 py-4 px-2  rounded-lg hover:bg-red-800 hover:cursor-pointer transition-all ease-in focus:ring-2 focus:ring-offset-1 focus:ring-red-700;
+}
+
+@media(width<470px){
+    .responsive{
+       margin: 0 1rem 0 1rem;
+    }
+    .special-input{
+        width: 4rem;
+    }
+}
