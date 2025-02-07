@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi"; // Import icons
+import { UserContext } from "../context/UserContext";
 
-const Navbar = ({ user }) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { user,isAuth } = useContext(UserContext);
 
-  // Close sidebar when clicking outside
   const closeSidebar = () => setIsOpen(false);
 
   return (
@@ -32,7 +33,7 @@ const Navbar = ({ user }) => {
           to="/account"
           className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-lg font-semibold"
         >
-          {user?.username?.slice(0, 1)}
+          {isAuth ? user?.username?.slice(0, 1) : "U" }
         </NavLink>
       </nav>
 
@@ -54,9 +55,8 @@ const Navbar = ({ user }) => {
 
       {/* Sidebar Menu */}
       <div
-        className={`fixed w-screen  top-0 left-0  h-full bg-white shadow-lg z-50 transform ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 ease-in-out`}
+        className={`fixed w-screen  top-0 left-0  h-full bg-white shadow-lg z-50 transform ${isOpen ? "translate-x-0" : "-translate-x-full"
+          } transition-transform duration-300 ease-in-out`}
       >
         {/* Close Button */}
         <button
@@ -87,9 +87,10 @@ const Navbar = ({ user }) => {
             className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-lg font-semibold"
             onClick={closeSidebar}
           >
-            {user?.username?.slice(0, 1)}
+            {isAuth ? user?.username?.slice(0, 1) : "U" }
+            
           </NavLink>
-            {user?.username}
+          
         </nav>
       </div>
     </header>

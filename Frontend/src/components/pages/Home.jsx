@@ -5,7 +5,7 @@ import PinCard from '../UI/PinCard';
 
 const Home = () => {
   const {pins,loading} = useContext(PinContext);
-  console.log(pins);
+
   
   return (
     <main className="h-screen w-screen ">

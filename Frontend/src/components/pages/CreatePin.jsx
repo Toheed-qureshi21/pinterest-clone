@@ -46,14 +46,14 @@ const CreatePin = () => {
     
 
   return (
-        <section className=' w-screen  flex flex-wrap justify-center items-center gap-3 '>
+        <section className=' w-screen h-dvh flex flex-wrap justify-center items-center gap-3 '>
             <div className='flex  items-center justify-center mt-12'>       
                 <div className="flex flex-col items-center justify-center w-80 h-auto p-6 bg-white rounded-lg shadow-2xl">
 
                     {filePreview && <img src={filePreview} />}
 
                     <div  onClick={handleClick}   className="flex flex-col gap-2 items-center justify-center h-full cursor-pointer">
-                        <input ref={inputRef} onChange={handleFileChange} type="file" accept='image/*' className='hidden ' />
+                        <input ref={inputRef} onChange={handleFileChange} type="file" accept='image/*' className='hidden ' required/>
                         <div className='w-12 h-12 mt-2 mb-4 flex items-center justify-center bg-gray-200 rounded-full'>
                         <FaPlus />
                         </div>

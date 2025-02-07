@@ -41,15 +41,17 @@ export const UserContextProvider = ({ children }) => {
   const fetchUser = async () => {
     setLoading(true);
     try {
-      const { data } = await axios.get("/api/user/me");
-      setUser(data);
-      setIsAuth(true);
+        const { data } = await axios.get("/api/user/me");
+        setUser(data);
+        setIsAuth(true);  
     } catch (error) {
-      toast.error(error.response?.data?.message || "Failed to fetch user");
+        setIsAuth(false);  
+        setUser(null);
+        toast.error(error.response?.data?.message || "Failed to fetch user");
     } finally {
-      setLoading(false);
+        setLoading(false);
     }
-  };
+}
 
   // follow
   const followUser = async(id,fetchUsers) => {
@@ -64,11 +66,13 @@ export const UserContextProvider = ({ children }) => {
   
 
   useEffect(() => {
-    fetchUser();  
+    if (isAuth) {
+      fetchUser();
+  }
   }, []);
 
   return (
-    <UserContext.Provider value={{ loginUser, btnLoading, isAuth, user, loading, registerUser,setIsAuth,setUser ,followUser}}>
+    <UserContext.Provider value={{ loginUser, btnLoading, isAuth, user, loading, registerUser,setIsAuth,setUser ,followUser,fetchUser}}>
       {children}
       <Toaster />
     </UserContext.Provider>
