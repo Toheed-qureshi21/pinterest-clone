@@ -8,7 +8,7 @@ const Home = () => {
 
   
   return (
-    <main className="h-screen w-screen ">
+    <main className="h-screen w-screen max-md:h-auto ">
       {
         loading ?(<Loading/>) :(
           <div className='max-w-7xl mx-auto py-6 sm:px-6 lg:px-8'>
