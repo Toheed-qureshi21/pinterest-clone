@@ -60,8 +60,8 @@ const PinPage = ({ user }) => {
             {
               loading ? (<Loading />) : (
                 <div className="bg-white rounded-lg shadow-lg max-h-auto flex flex-wrap w-full max-w-4xl">
-                  <div className="w-full md:w-1/2 bg-gray-200 rounded-t-lg md:roudned-l-lg md:rounded-t-none flex items-center justify-center">
-                    <img src={pin?.image?.url} alt="" className='object-cover h-full w-full rounded-t-lg md:rounded-l-lg md:rounded-t-none' />
+                  <div className="columns-2 md:columns-3 lg:columns-4 gap-4 mt-2">
+                    <img src={pin?.image?.url} alt="" className='object-cover w-full rounded-t-lg md:rounded-l-lg md:rounded-t-none' />
                   </div>
                   <div className="w-full md:w-1/2 p-6 flex flex-col ">
                     <div className="flex max-lg:flex-col items-center justify-between mb-4 ">
