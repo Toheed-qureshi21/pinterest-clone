@@ -90,7 +90,7 @@ export const deletPin = TryCatch(async(req,res)=>{
             return res.status(400).json({message:"No Pin found with this id"});
         }
         if (pin.createdBy.toString()!==req.user._id.toString()) {
-            return res.status(403).json({message:"Unauthorized! You are not owner of this comment"});
+            return res.status(403).json({message:"Unauthorized! You are not owner of this pin"});
         }
         await cloudinary.v2.uploader.destroy(pin.image.id);
         await pin.deleteOne();
