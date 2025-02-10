@@ -29,12 +29,12 @@ const Navbar = () => {
         <NavLink to="/create" className="text-gray-700 hover:text-black">
           Create
         </NavLink>
-        <NavLink
+       {isAuth && <NavLink
           to="/account"
           className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-lg font-semibold"
         >
-          {isAuth ? user?.username?.slice(0, 1) : "U" }
-        </NavLink>
+           {user?.username?.slice(0, 1)}
+        </NavLink>}
       </nav>
 
       {/* Mobile Menu Button */}
