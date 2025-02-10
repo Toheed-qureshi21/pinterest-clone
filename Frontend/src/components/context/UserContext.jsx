@@ -6,7 +6,7 @@ import axios from "axios";
 export const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
-  const [user, setUser] = useState(null);  // Changed from [] to null
+  const [user, setUser] = useState(null);  
   const [isAuth, setIsAuth] = useState(false);
   const [btnLoading, setBtnLoading] = useState(false);
   const [loading, setLoading] = useState(false);
