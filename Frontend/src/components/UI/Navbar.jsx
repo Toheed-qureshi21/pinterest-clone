@@ -87,10 +87,10 @@ const Navbar = () => {
             className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-lg font-semibold"
             onClick={closeSidebar}
           >
-            {isAuth ? user?.username?.slice(0, 1) : "U" }
+            {isAuth && user?.username?.slice(0, 1) }
             
           </NavLink>
-          
+          <NavLink>Hello</NavLink>
         </nav>
       </div>
     </header>
