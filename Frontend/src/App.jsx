@@ -51,36 +51,6 @@ function App() {
 
     },
   ])
-  // const router = createBrowserRouter([
-  //   {
-  //     path: "/",
-  //     element: isAuth ? [<Navbar user={user}/>,<Home />] : <Navigate to="/login" />,
-  //   },
-  //   {
-  //       path:'/create',
-  //       element:isAuth? [<Navbar user={user}/>,<CreatePin/>] : <Login/>,
-  //   },
-  //   {
-  //       path:'/account',
-  //       element:isAuth? [<Navbar user={user}/>,<AccountPage user={user}/>] : <Login/>,
-  //   },
-  //   {
-  //       path:'/user/:id',
-  //       element:isAuth? [<Navbar user={user}/>,<UserProfile user={user}/>] : <Login/>,
-  //   },
-  //   {
-  //     path: "/login",
-  //     element: isAuth ? <Navigate to="/" /> : <Login />,
-  //   },
-  //   {
-  //     path: "/register",
-  //     element: isAuth ? <Navigate to="/" /> : <Register />,
-  //   },
-  //   {
-  //     path: "/pin/:id",
-  //     element: isAuth ? [<Navbar user={user}/>,<PinPage user={user}/>]:<Login/>,
-  //   },
-  // ]);
 
   return <RouterProvider router={router} />;
 }
