@@ -12,6 +12,7 @@ import UserProfile from './components/pages/UserProfile.jsx';
 import AppLayout from './components/Layout/AppLayout.jsx';
 import LandingPage from './components/pages/LandingPage.jsx';
 
+
 function App() {
   const { isAuth,user } = useContext(UserContext);
   const router = createBrowserRouter([

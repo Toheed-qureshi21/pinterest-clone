@@ -36,9 +36,9 @@ const AccountPage = ({ user }) => {
 
 
     return (
-        <section className='h-dvh flex flex-col  items-center'>
+        <section className='h-fit flex flex-col  items-center'>
 
-            <div className="p-6 w-full">
+            <div className="p-6 w-full min-h-screen ">
                 <div className="flex items-center justify-center mt-12">
                     <div className="w-24 h-24 rounded-full bg-gray-300 flex items-center justify-center">
                         <span className='text-2xl text-gray-700'>{user?.username?.slice(0, 1)}</span>
@@ -50,13 +50,13 @@ const AccountPage = ({ user }) => {
                     <button onClick={handleLogOut} className="bg-gray-200 px-4 py-2 rounded hover:cursor-pointer">Log out</button>
                 </div>
 
-                <div className="mt-6 flex flex-wrap justify-center gap-4 ">
+                <ul className="mt-6 flex flex-wrap justify-center gap-4 ">
                     {
                         userPins && userPins.length>0 ? userPins.map((pin)=>{
                                 return <PinCard key={pin._id} pin={pin}/>
                         }) :<p>No pin yet</p>
                     }
-                </div>
+                </ul>
             </div>
 
         </section>

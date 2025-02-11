@@ -7,26 +7,21 @@ import { FaSearch } from 'react-icons/fa';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user, isAuth } = useContext(UserContext);
-
-  // Search state and router hooks
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
   const { search } = useLocation();
 
-  // On mount or when URL changes, set the search input from the URL (if available)
   useEffect(() => {
     const params = new URLSearchParams(search);
     const q = params.get("q") || "";
     setQuery(q);
   }, [search]);
 
-  // Handle search form submission: navigate to home with the query parameter.
   const handleSubmit = (e) => {
     e.preventDefault();
     if (query.trim()) {
       navigate(`/?q=${encodeURIComponent(query.trim())}`);
-      // Optionally, clear the input after search
-      // setQuery("");
+      setQuery("");
     }
   };
 
@@ -36,7 +31,7 @@ const Navbar = () => {
     <header
       className={`bg-white relative shadow-lg flex justify-between items-center px-4 py-4 md:px-6 lg:px-12 md:sticky md:top-0 z-50`}
     >
-      {/* Logo Section */}
+
       <div className="flex items-center">
         <NavLink to="/" className="flex items-center">
           <img src="/pinterestLogo.jpg" alt="Pinterest" className="h-12" />
@@ -113,7 +108,8 @@ const Navbar = () => {
         <FiMenu />
       </button>
 
-      {/* Overlay (closes menu when clicked) */}
+   
+   
       {isOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-40"
@@ -121,7 +117,6 @@ const Navbar = () => {
         ></div>
       )}
 
-      {/* Sidebar Menu (Mobile) */}
       <div
         className={`fixed w-screen top-0 left-0 h-full bg-white shadow-lg z-50 transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
@@ -135,7 +130,6 @@ const Navbar = () => {
           <FiX />
         </button>
 
-        {/* Mobile Menu Items */}
         <nav className="flex flex-col items-start space-y-6 p-6 pt-16">
           <NavLink
             to="/"
@@ -151,7 +145,6 @@ const Navbar = () => {
           >
             Create
           </NavLink>
-          {/* Search Form (Mobile) */}
           <form onSubmit={handleSubmit} className="flex items-center w-full">
             <input
               type="text"
