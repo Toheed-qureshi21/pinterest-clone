@@ -98,6 +98,17 @@ const Navbar = () => {
             </NavLink>
           </>
         )}
+
+        <NavLink to="/create" className="text-gray-700 hover:text-black">
+          Create
+        </NavLink>
+       {isAuth && <NavLink
+          to="/account"
+          className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-lg font-semibold"
+        >
+           {user?.username?.slice(0, 1)}
+        </NavLink>}
+
       </nav>
 
       {/* Mobile Menu Button */}
