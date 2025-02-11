@@ -10,6 +10,8 @@ import CreatePin from './components/pages/CreatePin.jsx';
 import AccountPage from './components/pages/AccountPage.jsx';
 import UserProfile from './components/pages/UserProfile.jsx';
 import AppLayout from './components/Layout/AppLayout.jsx';
+import LandingPage from './components/pages/LandingPage.jsx';
+
 
 function App() {
   const { isAuth,user } = useContext(UserContext);
@@ -20,7 +22,7 @@ function App() {
       children: [
         {
           path: "/",
-          element: isAuth ? <Home /> : <Login />,
+          element: isAuth ? <Home /> : <LandingPage/>,
         },
         {
           path: "/login",
