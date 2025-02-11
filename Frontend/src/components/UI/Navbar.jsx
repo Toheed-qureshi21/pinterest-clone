@@ -65,12 +65,6 @@ const Navbar = () => {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
-            <button
-              type="submit"
-              className="absolute right-[16rem] bg-white"
-            >
-              <FaSearch className="text-lg text-gray-500 font-light" />
-            </button>
           </form>
           }
       
@@ -99,9 +93,6 @@ const Navbar = () => {
           </>
         )}
 
-        <NavLink to="/create" className="text-gray-700 hover:text-black">
-          Create
-        </NavLink>
        {isAuth && <NavLink
           to="/account"
           className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-lg font-semibold"
