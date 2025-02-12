@@ -7,25 +7,34 @@ This project showcases authentication, authorization, real-time interactions, an
 ✅Frontend: React.js, React Router, Axios
 
 ✅Backend: Node.js, Express.js
+
 ✅Database: MongoDB with Mongoose
+
 ✅Authentication: JWT (JSON Web Tokens)
+
 ✅UI Styling: Tailwind CSS
+
 ✅Image Storage: Cloudinary
+
 ## Features 🚀
 ✅ User Authentication & Authorization:
 Secure JWT-based login & registration.
 Password hashing for security.
+
 ✅ Pin Management:
 Upload, edit, and delete pins.
 Masonry grid layout for dynamic pin arrangement.
 Each pin has a title, description, and image.
+
 ✅ User Interaction:
 Commenting system with the ability to delete own comments.
 Follow/unfollow users to stay updated with their pins.
 Like & Save Pins (optional feature).
+
 ✅ Profile & Dashboard:
 Users can view their uploaded pins.
 See followers and following list.
+
 ✅ Responsive UI & UX:
 Mobile-friendly design using Tailwind CSS.
 Smooth navigation and image loading.
