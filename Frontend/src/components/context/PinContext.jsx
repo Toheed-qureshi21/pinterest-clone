@@ -103,9 +103,8 @@ export const PinProvider = ({ children }) => {
         
 
     useEffect(() => {
-        if (isAuth) {
             fetchPins();
-        }
+
         
     }, [])
 

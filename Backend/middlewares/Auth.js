@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import User from "../models/userModel.js"
 export const isAuth = async(req,res,next) => {
   try {
-    const token = await req.cookies.token;
+    const token =req.cookies.token;
     
     if (!token) {
         return res.status(403).json({message:"Login first"});

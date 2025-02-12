@@ -66,9 +66,9 @@ export const UserContextProvider = ({ children }) => {
   
 
   useEffect(() => {
-    if (isAuth) {
+    
       fetchUser();
-  }
+ 
   }, []);
 
   return (

@@ -3,6 +3,7 @@ import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi"; // Import icons
 import { UserContext } from "../context/UserContext";
 import { FaSearch } from 'react-icons/fa';
+import LoginSignup from "./LoginSignup";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +11,8 @@ const Navbar = () => {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
   const { search } = useLocation();
+
+  
 
   useEffect(() => {
     const params = new URLSearchParams(search);
@@ -21,8 +24,10 @@ const Navbar = () => {
     e.preventDefault();
     if (query.trim()) {
       navigate(`/?q=${encodeURIComponent(query.trim())}`);
-      setQuery("");
     }
+    closeSidebar()
+    setQuery("");
+    e.stopPropagation()
   };
 
   const closeSidebar = () => setIsOpen(false);
@@ -42,7 +47,7 @@ const Navbar = () => {
       </div>
 
       {/* Desktop Navigation */}
-      <nav className="hidden md:flex items-center space-x-6">
+      <nav className="hidden lg:flex items-center space-x-6">
         <NavLink
           to="/"
           className="text-gray-700 hover:text-black font-bold"
@@ -67,31 +72,7 @@ const Navbar = () => {
             />
           </form>
           }
-      
-        {isAuth && (
-          <NavLink
-            to="/account"
-            className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-lg font-semibold"
-          >
-            {user?.username?.slice(0, 1)}
-          </NavLink>
-        )}
-        {!isAuth && (
-          <>
-            <NavLink
-              to="/login"
-              className="bg-red-600 text-white font-semibold px-3 py-2 rounded-2xl hover:bg-red-700 hover:cursor-pointer transition-all duration-300"
-            >
-              Log in
-            </NavLink>
-            <NavLink
-              to="/register"
-              className="bg-gray-200 font-semibold py-2 px-4 rounded-2xl hover:bg-gray-300 hover:cursor-pointer transition-all duration-300"
-            >
-              Sign up
-            </NavLink>
-          </>
-        )}
+    <LoginSignup/>
 
        {isAuth && <NavLink
           to="/account"
@@ -105,7 +86,7 @@ const Navbar = () => {
       {/* Mobile Menu Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="md:hidden text-2xl text-gray-700"
+        className="lg:hidden text-2xl text-gray-700"
       >
         <FiMenu />
       </button>
@@ -147,14 +128,15 @@ const Navbar = () => {
           >
             Create
           </NavLink>
-          <form onSubmit={handleSubmit} className="flex items-center w-full">
+          <form onSubmit={handleSubmit} className="flex items-center w-full relative  ">
             <input
               type="text"
               placeholder="Search..."
-              className="border p-2 rounded-l-md focus:outline-none flex-1"
+              className="common-input "
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
+            <button className="absolute left-[11rem] hover:cursor-pointer" type="submit"><FaSearch/></button>
           </form>
           {isAuth && (
             <NavLink
@@ -165,6 +147,7 @@ const Navbar = () => {
               {user?.username?.slice(0, 1)}
             </NavLink>
           )}
+          <LoginSignup/>
         </nav>
       </div>
     </header>

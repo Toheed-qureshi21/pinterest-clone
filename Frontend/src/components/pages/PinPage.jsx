@@ -162,10 +162,11 @@ const PinPage = ({ user }) => {
             }
           </div>
         )
-      }
+      }  
     </section>
   )
 }
 
 export default PinPage
+
 

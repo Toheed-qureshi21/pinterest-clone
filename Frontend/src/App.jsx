@@ -11,10 +11,14 @@ import AccountPage from './components/pages/AccountPage.jsx';
 import UserProfile from './components/pages/UserProfile.jsx';
 import AppLayout from './components/Layout/AppLayout.jsx';
 import LandingPage from './components/pages/LandingPage.jsx';
+import { Loading } from './components/UI/Loading.jsx';
 
 
 function App() {
-  const { isAuth,user } = useContext(UserContext);
+  const { isAuth,user,loading } = useContext(UserContext);
+  if (loading) {
+    return <Loading/>
+  }
   const router = createBrowserRouter([
     {
       path: "/",
