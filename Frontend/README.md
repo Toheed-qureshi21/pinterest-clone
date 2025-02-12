@@ -5,6 +5,7 @@ This project showcases authentication, authorization, real-time interactions, an
 
 ## Tech Stack 🚀
 ✅Frontend: React.js, React Router, Axios
+
 ✅Backend: Node.js, Express.js
 ✅Database: MongoDB with Mongoose
 ✅Authentication: JWT (JSON Web Tokens)
